@@ -5,5 +5,78 @@ title: "eds212-day4-task"
 ## End of day task
 
 ```{r}
+library(tidyverse)
+library(skimr)
+library(GGally)
 
+```
+
+## **Data exploration & summarizing in R**
+
+-   Create a new Project
+
+-   Add a new Quarto document in your project, save as `r-exploring`
+
+-   Set up your local and remote git repo by running `usethis::use_git()` and then `usethis::use_github()`
+
+-   Attach the `tidyverse`, `skimr`, and `GGally` packages in the setup code chunk
+
+-   Run `View(diamonds)` in the Console to look at the built-in `diamonds` dataset in R
+
+-   Explore the dataset using the functions `names()`, `dim()`, `summary()`, `head()`, `tail()`, and `skimr::skim()`
+
+-   Create a pairs plot using `ggpairs()`
+
+-   Create a basic `ggplot` scatterplot of diamond price (`price`) as a function of size (`carat`)
+
+-   Create a histogram showing the distribution of values in the `carat` column (recall: a histogram only requires a single variable, e.g. `aes(x = carat)`)
+
+-   Save, stage, commit, pull, then push your changes back to your repo in RStudio **using the GUI interface (buttons)**
+
+-   Create a boxplot (see: `geom_box`) of diamond clarity (on the x-axis) and price (y-axis).
+
+-   **In the command line**, stage, commit, & push changes
+
+## 
+
+## Exploring data
+
+```{r}
+names(diamonds)
+```
+
+```{r}
+dim(diamonds)
+```
+
+```{r}
+summary(diamonds)
+```
+
+```{r}
+head(diamonds)
+```
+
+```{r}
+tail(diamonds)
+```
+
+```{r}
+skimr::skim(diamonds)
+```
+
+```{r}
+ggpairs(diamonds)
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = carat, 
+                            y = price)) +
+  geom_point(aes(color = cut))
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = carat)) +
+  geom_histogram(aes(fill = cut)) + 
+  theme_minimal() 
 ```
