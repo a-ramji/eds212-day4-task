@@ -72,11 +72,17 @@ ggpairs(diamonds)
 ```{r}
 ggplot(data = diamonds, aes(x = carat, 
                             y = price)) +
-  geom_point(aes(color = cut))
+  geom_point(aes(color = cut)) 
 ```
 
 ```{r}
 ggplot(data = diamonds, aes(x = carat)) +
   geom_histogram(aes(fill = cut)) + 
   theme_minimal() 
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = clarity,
+                            y = price)) +
+  geom_boxplot()
 ```
